@@ -1,26 +1,29 @@
 const {Router} = require('express');
-const { check } = require('express-validator');
 
 // Controllers
 const {
     createUser,
     getUser,
     editUser,
-    deleteUser
+    deleteUser,
+    getUsers
 } = require('../controllers/users');
 
 const router = Router();
 
-// Crear Pacientes
+// Crear Users
 router.post('/', createUser);
 
-// Get Paciente
-router.get('/', createUser);
+// Get Users
+router.get('/all', getUsers);
 
-// Editar Paciente
-router.put('/', editUser);
+// Get Users
+router.get('/:id', getUser);
 
-// Eliminar Paciente
-router.delete('/', deleteUser);
+// Editar Users
+router.put('/:id', editUser);
+
+// Eliminar Users
+router.delete('/:id', deleteUser);
 
 module.exports = router;

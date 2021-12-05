@@ -1,26 +1,29 @@
-// const {Router} = require('express');
-// const { check } = require('express-validator');
+const {Router} = require('express');
 
-// // Controllers
-// const {
-//     createUser,
-//     getUser,
-//     editUser,
-//     deleteUser
-// } = require('../controllers/users');
+// Controllers
+const {
+    createMedic,
+    getMedic,
+    editMedic,
+    deleteMedic,
+    getMedics
+} = require('../controllers/medics');
 
-// const router = Router();
+const router = Router();
 
-// // Crear Pacientes
-// router.post('/', createUser);
+// Crear Medics
+router.post('/', createMedic);
 
-// // Get Paciente
-// router.get('/', createUser);
+// Get Medics
+router.get('/all', getMedics);
 
-// // Editar Paciente
-// router.put('/', editUser);
+// Get Medic
+router.get('/:id', getMedic);
 
-// // Eliminar Paciente
-// router.delete('/', deleteUser);
+// Editar Medic
+router.put('/:id', editMedic);
 
-// module.exports = router;
+// Eliminar Medic
+router.delete('/:id', deleteMedic);
+
+module.exports = router;
