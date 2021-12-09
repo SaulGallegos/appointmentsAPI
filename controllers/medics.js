@@ -5,7 +5,7 @@ const createMedic = async (req, res) => {
 
     const {medic_name, last_name, gender, age, email, address, phone} = req.body;
     const {rows} = await pool.query('SELECT * FROM medic');
-    const id_medic = rows.length + 1,no_medic = id_medic, image = id_medic;
+    const id_medic = rows.length + Math.floor(Math.random() * 12345),no_medic = rows.length+1, image = id_medic;
     const created = new Date();
 
     await pool.query(
